@@ -28,7 +28,6 @@ public class BaseTest {
 		
 		driver.get("https://demoqa.com/");
 		driver.manage().window().maximize();
-		driver.switchTo().window(parentTab);
 		
 		  //switch to iframe to click the close button in ads 
 		//driver.switchTo().frame("google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0");
