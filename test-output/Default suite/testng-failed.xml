@@ -9,7 +9,6 @@
           <include name="Check_box"/>
           <include name="teardown"/>
           <include name="Elements_Menu"/>
-          <include name="Text_Box"/>
         </methods>
       </class> <!-- Element_Practice.Elements -->
     </classes>

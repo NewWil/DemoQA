@@ -21,7 +21,7 @@ public class BaseTest {
 		// TODO Auto-generated method stub
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
-		options.addExtensions(new File ("./Extensions/AdBlock.crx"));
+		//options.addExtensions(new File ("./Extensions/AdBlock.crx"));
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\Browsers\\ChromeDriver_115v\\chromedriver-win64\\chromedriver.exe");
 		driver = new ChromeDriver(options);

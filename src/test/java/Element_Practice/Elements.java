@@ -103,6 +103,15 @@ public class Elements extends BaseTest {
 		
 		//click Veu Check box
 		driver.findElement(By.xpath("//span[contains(text(), 'Veu')]")).click();
+		
+		//Scroll where Office toggle is availble and click the toggle for Office
+		JavascriptExecutor jsExecutorOffice = (JavascriptExecutor) driver;
+		WebElement Office_toggle = driver.findElement(By.xpath("(//button[@title='Toggle'])[5]"));
+		jsExecutorOffice.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});"
+		,Office_toggle);
+		
+		//Click Office toggle
+		Office_toggle.click();
 	}
 	
 }
