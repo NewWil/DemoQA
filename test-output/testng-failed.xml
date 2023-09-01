@@ -5,8 +5,8 @@
     <classes>
       <class name="Element_Practice.Elements">
         <methods>
+          <include name="Radio_Button"/>
           <include name="Base"/>
-          <include name="Check_box"/>
           <include name="teardown"/>
           <include name="Elements_Menu"/>
         </methods>

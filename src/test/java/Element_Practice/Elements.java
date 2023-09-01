@@ -1,6 +1,7 @@
 package Element_Practice;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -72,7 +73,7 @@ public class Elements extends BaseTest {
 	}
 
 	@Test
-	public void Check_box() {
+	public void Check_box() throws InterruptedException {
 		
 		//click Check Box on Menu
 		driver.findElement(By.id("item-1")).click();
@@ -98,20 +99,60 @@ public class Elements extends BaseTest {
 		//Click Toggle
 		workspace_toggle.click();
 		
+		JavascriptExecutor scroll = (JavascriptExecutor) driver;
+		scroll.executeScript("window.scrollBy(0, 400);");
+		
 		//Click React checkbox
 		driver.findElement(By.xpath("//span[contains(text(), 'React')]")).click();
 		
 		//click Veu Check box
 		driver.findElement(By.xpath("//span[contains(text(), 'Veu')]")).click();
 		
-		//Scroll where Office toggle is availble and click the toggle for Office
-		JavascriptExecutor jsExecutorOffice = (JavascriptExecutor) driver;
-		WebElement Office_toggle = driver.findElement(By.xpath("(//button[@title='Toggle'])[5]"));
-		jsExecutorOffice.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});"
-		,Office_toggle);
+		//click the toggle for Office
+		driver.findElement(By.xpath("(//button[@title='Toggle'])[5]")).click();
+
+		//Select public, Classified and General 
+		driver.findElement(By.xpath("//span[contains(text(), 'Public')]")).click();
+		driver.findElement(By.xpath("//span[contains(text(), 'Classified')]")).click();
+		driver.findElement(By.xpath("//span[contains(text(), 'General')]")).click();
 		
-		//Click Office toggle
-		Office_toggle.click();
+		//Click the toggle for Downloads
+		driver.findElement(By.xpath("(//button[@title='Toggle'])[6]")).click();
+		
+		//Click Word File and Excel File
+		//wordfile
+		driver.findElement(By.xpath("//span[contains(text(), 'Word File.doc')]")).click();
+		
+		//excelfile
+		driver.findElement(By.xpath("//span[contains(text(), 'Excel File.doc')]")).click();
+		
+		//Scroll to top
+		JavascriptExecutor scroll_top = (JavascriptExecutor) driver;
+		int targetTop = 0;
+		scroll_top.executeScript("window.scrollTo({ top: arguments[0], behavior: 'smooth' });", targetTop);
+		
+
+		//Click Collapse all 
+		driver.findElement(By.xpath("//button[@title='Collapse all']")).click();
+		
+		//Click Expand All
+		driver.findElement(By.xpath("//button[@title='Expand all']")).click();
+		
+	}
+	
+	@Test
+	public void Radio_Button() {
+	
+		//Click Radio button in the menu
+		JavascriptExecutor scroll = (JavascriptExecutor) driver;
+		scroll.executeScript("window.scrollBy(0, 200);");
+		driver.findElement(By.id("item-2")).click();
+		
+		WebElement radioButton = driver.findElement(By.id("impressiveRadio"));
+
+		if (!radioButton.isSelected()) {
+		    radioButton.click(); // Select the radio button
+		}
 	}
 	
 }
